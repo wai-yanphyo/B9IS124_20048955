@@ -1,13 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>cart</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Your Cart</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cart</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <div *ngIf="cartItems.length === 0" class="empty-cart-message">
+    <ion-icon name="cart-outline" size="large"></ion-icon>
+    <p>Dear Customer! Your cart is empty. Start adding some delicious food!</p>
+    <ion-button routerLink="/menu" expand="block" color="primary">Go to Menu</ion-button>
+  </div>
+
+
 </ion-content>
