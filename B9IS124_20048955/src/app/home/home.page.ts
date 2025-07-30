@@ -10,4 +10,12 @@ export class HomePage {
 
   constructor() {}
 
+     async openExternalLink() {
+    try {
+      await Browser.open({ url: '[https://theoldstorehouse.ie/](https://theoldstorehouse.ie/)' });
+    } catch (error) {
+      console.error('Error opening in-app browser:', error);
+      window.open('[https://theoldstorehouse.ie/](https://theoldstorehouse.ie/)', '_system');
+    }
+  }
 }
