@@ -1,13 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>about</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>About Us</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">about</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ <ion-card class="about-card">
+    <img src="https://images.ctfassets.net/qyyefbvciouk/6EiDceR4zdg8I2gIVTi2Zd/a017eba720b85f431144e3d6120a9192/alex-haney-CAhjZmVk5H4-unsplash.jpg" />
+    <ion-card-header>
+      <ion-card-title>Our Story</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Welcome to My Restaurant, where culinary passion meets exceptional dining.
+        Established in 2020, our journey began with a simple vision: to create a place
+        where food lovers can gather, share, and savor authentic flavors made with the
+        freshest local ingredients.
+      </p>
+      <p>
+        From our humble beginnings, we have grown into a beloved local spot,
+        known for our warm ambiance, friendly service, and a menu that celebrates
+        both traditional recipes and innovative culinary creations.
+      </p>
+      <p>
+        Our chefs are dedicated to crafting dishes that not only tantalize your taste buds
+        but also tell a story. We believe in sustainable practices and supporting
+        local farmers, ensuring every meal you enjoy is of the highest quality and
+        freshness.
+      </p>
+      <p>
+        Thank you for being a part of our story. We look forward to serving you. Have a nice day!
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>
