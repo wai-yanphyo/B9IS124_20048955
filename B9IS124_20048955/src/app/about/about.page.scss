@@ -1,0 +1,86 @@
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+}
+
+ion-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+ion-card {
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: var(--ion-color-white);
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  ion-card-header {
+    padding-bottom: 0;
+  }
+
+  ion-card-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--ion-color-primary);
+    margin-bottom: 10px;
+  }
+
+  ion-card-content {
+    padding-top: 0;
+    p {
+      color: var(--ion-color-dark);
+      line-height: 1.6;
+      margin-bottom: 15px;
+      font-size: 1em;
+    }
+  }
+}
+
+.mission-card {
+  ion-card-title {
+    font-size: 1.6em;
+    color: var(--ion-color-secondary);
+  }
+
+  ion-list {
+    margin-top: 15px;
+  }
+
+  ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --min-height: 60px;
+    border-bottom: 1px solid var(--ion-color-step-100, #f2f2f2);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    ion-icon {
+      font-size: 2em;
+      margin-right: 15px;
+      color: var(--ion-color-tertiary);
+    }
+
+    ion-label {
+      h3 {
+        font-size: 1.1em;
+        font-weight: 600;
+        color: var(--ion-color-dark);
+        margin-bottom: 3px;
+      }
+      p {
+        font-size: 0.95em;
+        color: var(--ion-color-medium);
+      }
+    }
+  }
+}
