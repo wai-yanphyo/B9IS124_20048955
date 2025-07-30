@@ -83,3 +83,58 @@ ion-title {
   }
 }
 
+
+
+.map-card {
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: var(--ion-color-light);
+
+  ion-card-header {
+    padding-bottom: 0;
+  }
+
+  ion-card-title {
+    font-size: 1.4em;
+    color: var(--ion-color-dark);
+  }
+
+  ion-card-content {
+    padding-top: 0;
+    p {
+      font-size: 0.95em;
+      color: var(--ion-color-medium);
+      margin-bottom: 5px;
+    }
+    .map-note {
+      font-style: italic;
+      font-size: 0.85em;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    ion-button {
+      margin-top: 10px;
+    }
+  }
+}
+
+.error-card {
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: var(--ion-color-danger-tint);
+  color: var(--ion-color-danger-contrast);
+  text-align: center;
+  padding: 15px;
+
+  ion-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+}
