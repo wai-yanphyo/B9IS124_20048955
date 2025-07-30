@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Browser } from '@capacitor/browser';
 
 @Component({
   selector: 'app-home',
