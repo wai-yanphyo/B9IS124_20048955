@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { MenuPageRoutingModule } from './menu-routing.module';
 
 import { MenuPage } from './menu.page';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,10 @@ import { MenuPage } from './menu.page';
     IonicModule,
     MenuPageRoutingModule
   ],
-  declarations: [MenuPage]
+  declarations: [MenuPage],
+   providers: [
+    SocialSharing,
+   
+  ],
 })
 export class MenuPageModule {}

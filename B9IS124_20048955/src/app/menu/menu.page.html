@@ -1,13 +1,49 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>menu</ion-title>
+    <ion-title>Menu</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-list *ngIf="filteredMenuItems.length > 0">
+  <ng-container *ngFor="let item of filteredMenuItems; let i = index">
+
+    <!--Sir Let me note for category divider -->
+    <ion-item-divider *ngIf="shouldShowCategory(item.category, i)" [ngClass]="{'first-divider': i === 0}">
+      <ion-label>{{ item.category }}</ion-label>
+    </ion-item-divider>
+
+    <!-- Sir Let me note for menu item -->
+    <ion-item class="menu-item-card">
+      <ion-thumbnail slot="start">
+        <img [src]="item.imageUrl" [alt]="item.name"
+             onerror="this.src='https://placehold.co/100x100/CCCCCC/000000?text=No+Image';" />
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.description }}</p>
+        <p class="price">{{ item.price | currency:'EUR':'symbol':'1.2-2' }}</p>
+      </ion-label>
+      <div slot="end" class="item-actions">
+        <ion-button fill="clear" (click)="shareItem(item)">
+          <ion-icon name="share-social-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="0">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+
+         <span class="click-count" *ngIf="(item.clickCount ?? 0) > 0">
+    {{ item.clickCount }}
+  </span>
+      </div>
+    </ion-item>
+  </ng-container>
+</ion-list>
+
+
+
+
+
 </ion-content>
+  

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 
 export interface MenuItem {
@@ -9,6 +11,10 @@ export interface MenuItem {
   imageUrl: string;
   category: string;
   clickCount?: number;
+}
+
+export interface CartItem extends MenuItem {
+  quantity: number;
 }
 
 
@@ -32,10 +38,68 @@ export class DataService {
 
 
 
-  constructor() { }
+private cart = new BehaviorSubject<CartItem[]>([]);
+  
+cart$: Observable<CartItem[]> = this.cart.asObservable();
+
+
+  constructor() {
+
+     const storedCart = localStorage.getItem('restaurantCart');
+    if (storedCart) {
+      this.cart.next(JSON.parse(storedCart));
+    }
+   }
 
   getMenuItems(): MenuItem[] {
     return this.menuItems;
   }
+
+      addToCart(item: MenuItem): void {
+        const currentCart = this.cart.getValue();
+      const existingItem = currentCart.find(cartItem => cartItem.id === item.id);
+
+        if (existingItem) {
+          existingItem.quantity++;
+     } else {
+          currentCart.push({ ...item, quantity: 1 });
+        }
+      this.cart.next(currentCart);
+      this.saveCart();
+  }
+
+   removeFromCart(itemId: number): void {
+    let currentCart = this.cart.getValue();
+    const existingItemIndex = currentCart.findIndex(cartItem => cartItem.id === itemId);
+
+    if (existingItemIndex > -1) {
+      const existingItem = currentCart[existingItemIndex];
+      if (existingItem.quantity > 1) {
+        existingItem.quantity--;
+      } else {
+        
+        currentCart = currentCart.filter(cartItem => cartItem.id !== itemId);
+      }
+    }
+    this.cart.next(currentCart);
+  }
+
+   clearCart(): void {
+    this.cart.next([]);
+    this.saveCart();
+  }
+
+  getCartTotal(): number {
+   return this.cart.getValue().reduce((total, item) => total + (item.price * item.quantity), 0);
+  }
+
+   private saveCart(): void {
+    localStorage.setItem('restaurantCart', JSON.stringify(this.cart.getValue()));
+  }
+
+
+
+
+
   
 }
