@@ -109,3 +109,13 @@
     }
   }
 }
+
+@media (max-height: 700px) {
+  #container {
+    position: relative;
+    top: auto;
+    transform: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
