@@ -33,4 +33,9 @@ export class DataService {
 
 
   constructor() { }
+
+  getMenuItems(): MenuItem[] {
+    return this.menuItems;
+  }
+  
 }
