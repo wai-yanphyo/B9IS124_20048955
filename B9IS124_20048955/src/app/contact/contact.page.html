@@ -49,7 +49,39 @@
         </ion-item>
     </ion-list>
  
+
+
+    <ion-button expand="block" color="primary" (click)="getCurrentLocation()">
+        <ion-icon slot="start" name="navigate-outline"></ion-icon>
+        Show My Location
+      </ion-button>
+
+      <ion-card *ngIf="latitude && longitude" class="map-card">
+        <ion-card-header>
+          <ion-card-title>Restaurant Location</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>Latitude: {{ latitude | number:'1.4-4' }}</p>
+          <p>Longitude: {{ longitude | number:'1.4-4' }}</p>
+          <p class="map-note">
+            (This is currently a placeholder for a map. In the full version of the app, Sir, I will integrate with Google Map.)
+          </p>
+          <ion-button expand="block" fill="outline" (click)="openGoogleMaps()">
+            <ion-icon slot="start" name="map-outline"></ion-icon>
+            Open in Google Maps
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card *ngIf="locationError" class="error-card">
+        <ion-card-content>
+          <ion-icon name="warning-outline" color="danger"></ion-icon>
+          <p>{{ locationError }}</p>
+          <p>Please ensure location services are enabled for the app.</p>
+        </ion-card-content>
+      </ion-card>
+
+
     </ion-card-content>
-    
   </ion-card>
 </ion-content>
