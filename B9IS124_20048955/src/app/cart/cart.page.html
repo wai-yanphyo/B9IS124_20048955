@@ -17,4 +17,70 @@
   </div>
 
 
-</ion-content>
+
+  <ion-list *ngIf="cartItems.length > 0">
+    <ion-item *ngFor="let item of cartItems" class="cart-item-card">
+      <ion-thumbnail slot="start">
+        <img [src]="item.imageUrl" [alt]="item.name" onerror="this.src='https://placehold.co/100x100/CCCCCC/000000?text=No+Image';" />
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{ item.name }}</h3>
+        <p class="price">{{ item.price | currency:'EUR':'symbol':'1.2-2' }}</p>
+        <p>Total: {{ (item.price * item.quantity) | currency:'EUR':'symbol':'1.2-2' }}</p>
+      </ion-label>
+      <div slot="end" class="quantity-controls">
+        <ion-button fill="clear" (click)="removeFromCart(item.id)">
+          <ion-icon name="remove-circle-outline"></ion-icon>
+        </ion-button>
+        <ion-text class="quantity-text">{{ item.quantity }}</ion-text>
+        <ion-button fill="clear" (click)="addToCart(item)">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+
+
+
+
+
+
+ <ion-footer *ngIf="cartItems.length > 0">
+  <ion-toolbar>
+      <ion-grid>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="6">
+            <ion-text class="total-label">Total:</ion-text>
+            <ion-text class="total-amount">{{ cartTotal | currency:'EUR':'symbol':'1.2-2' }}</ion-text>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button expand="block" color="success" (click)="checkout()">
+              <ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>
+              Checkout
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+
+  </ion-content>
+
+
+  <ion-modal [isOpen]="isModalOpen" (willDismiss)="isModalOpen = false">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{ modalTitle }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="isModalOpen = false">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <p>{{ modalMessage }}</p>
+      <ion-button expand="block" (click)="isModalOpen = false">OK</ion-button>
+    </ion-content>
+  </ng-template>
+</ion-modal>

@@ -44,7 +44,27 @@ removeFromCart(itemId: number): void {
   }
 
 
- 
+   async checkout(): Promise<void> {
+    if (this.cartItems.length === 0) {
+      this.showModal('Empty Cart', 'Your cart is empty. Please add items before checking out.');
+      return;
+    }
+
+    console.log('Placing order:', this.cartItems);
+    console.log('Total amount:', this.cartTotal);
+
+
+     try {
+      await Haptics .vibrate({ duration: 300 });
+      console.log('Vibration successful');
+    } catch (error) {
+      console.error('Error vibrating:', error);
+    }
+
+    this.dataService.clearCart(); 
+    this.showModal('Order Placed!', 'Thank you for your order. Your food will be prepared shortly!');
+
+  }
 
    showModal(title: string, message: string): void {
     this.modalTitle = title;
