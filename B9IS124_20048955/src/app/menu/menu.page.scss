@@ -131,3 +131,14 @@ ion-item-divider.first-divider {
 }
 
 
+.click-count {
+  font-weight: bold;
+  color: var(--ion-color-primary);
+  margin-left: 8px;
+  font-size: 0.9em;
+  user-select: none;
+}
+
+ion-icon {
+  font-size: 22px;
+}
