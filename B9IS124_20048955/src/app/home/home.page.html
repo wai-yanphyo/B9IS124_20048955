@@ -1,20 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      <ion-icon name="restaurant-outline"></ion-icon> My Restaurant
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+ <div id="container">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card class="welcome-card">
+      <img src="https://placehold.co/600x400/FF5733/FFFFFF?text=Welcome+to+Our+Restaurant" alt="Restaurant interior" />
+      <ion-card-header>
+        <ion-card-subtitle>Welcome</ion-card-subtitle>
+        <ion-card-title>Taste the Difference</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Hello Sir!Experience exquisite dining with our fresh ingredients and unique flavors.
+          We are committed to providing you with an unforgettable culinary journey.
+        </p>
+        <ion-button expand="block" fill="solid" color="primary" routerLink="/menu">
+          <ion-icon slot="start" name="book-outline"></ion-icon>
+          View Our Menu
+        </ion-button>
+        <ion-button expand="block" fill="outline" color="secondary" routerLink="/contact">
+          <ion-icon slot="start" name="call-outline"></ion-icon>
+          Contact Us
+        </ion-button>
+        <ion-button expand="block" fill="clear" color="tertiary" (click)="openExternalLink()">
+          <ion-icon slot="start" name="globe-outline"></ion-icon>
+          Visit Our Website
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+ </div>
 </ion-content>
