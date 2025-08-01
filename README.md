@@ -89,3 +89,32 @@ The following Capacitor plugins are integrated into my app:
 
 ---
 
+## References
+
+### Online Courses & Video Tutorials
+- Maximilian Schwarzmüller – Udemy  
+  https://www.udemy.com/topic/ionic/
+
+- Josh Morony – Ionic Start  
+  https://ionicstart.com/
+
+- Simon Grimm – Ionic Academy  
+  https://ionicacademy.com/
+
+- YouTube Channel (Icon & Splash Tutorial)  
+  https://www.youtube.com/watch?v=nk6bKXJ3T3U
+
+### Blogs and Community Resources
+- Ionic Blog  
+  https://ionic.io/blog
+
+- Angular Minds Blog  
+  https://www.angularminds.com/blog
+
+- Ionic Community Forum  
+  https://forum.ionicframework.com/
+
+- Devdactic by Simon Grimm  
+  https://devdactic.com/
+
+
